@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project1 - MouseEvents</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: black;
+        }
+
+        .square {
+            height: 150px;
+            width: 150px;
+            margin: auto;
+            margin-top: 16%;
+            background-color: yellowgreen;
+            border: 2px solid black 0.2;
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px whitesmoke;
+            position: relative;
+            left: 0;
+            transition: left 0.5s ease;
+            }
+        button{
+            margin-left: 45%;
+        }
+        #btn{
+            width: 150px;
+            height: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: x-large;
+            color: yellowgreen;
+            border: 5px solid yellowgreen;
+            background-color: black;
+            border-radius: 18px;
+        }
+        #btn:hover{
+            color: black;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    
+        <div class="square"></div>
+        <br/>
+        <button id="btn">Click Me</button>
+    
+
+    <script>
+        let myBtn = document.getElementById('btn');
+        let myDivSqr = document.getElementsByClassName('square');
+
+
+        const handleMouseEvents = ()=>{
+            console.log("click");
+            for (let i = 0; i < myDivSqr.length; i++) {
+        myDivSqr[i].style.backgroundColor = "yellow";
+        console.log(myDivSqr.length);
+    }
+        };
+
+        const handleMouseEvents2 = ()=>{
+            console.log("dblclick");
+            for (let i = 0; i < myDivSqr.length; i++) {
+        myDivSqr[i].style.backgroundColor = "pink";
+        console.log(myDivSqr.length);
+    }
+        };
+
+        const handleMouseEvents3 = ()=> {
+            myDivSqr[0].style.left = '-200px';
+            myDivSqr[0].style.backgroundColor = 'red';
+            myDivSqr[0].style.borderRadius= '50%';
+
+   
+            console.log("squre swipe left");
+        }
+        
+        const handleMouseEvents4 = ()=>{
+            myDivSqr[0].style.left = '0';
+            myDivSqr[0].style.backgroundColor = 'yellowgreen'; // Reapply the original color
+            myDivSqr[0].style.borderRadius= '5px';
+            console.log("squre swipe right");
+        }
+
+        //myBtn.addEventListener('click',handleMouseEvents);
+        //myBtn.addEventListener('dblclick', handleMouseEvents2);
+        myBtn.addEventListener('mouseenter',handleMouseEvents3);
+        myBtn.addEventListener('mouseleave', handleMouseEvents4);
+
+    </script>
+</body>
+</html>
